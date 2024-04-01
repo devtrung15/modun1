@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 3</title>
+</head>
+<body>
+<label for="so_nguyen_x">Số nguyên X: </label>
+<input type="number" id="so_nguyen_x" placeholder="Nhập số nguyên x...">
+
+<button onclick="tinh()">Tính</button>
+<h2 id="ket_qua"></h2>
+</body>
+<script>
+    function tinh() {
+        let so_nguyen_x = +parseInt(document.getElementById("so_nguyen_x").value)
+
+        function kiemTraSoNguyenTo(j) {
+            if (j <= 1) {
+                return false
+            }
+            for (let i = 2; i <= Math.sqrt(j); i++) {
+                if (j % i === 0) {
+                    return false
+                }
+            }
+            return true
+        }
+
+        function sumOfListPrime(so_nguyen_x) {
+            let sum = 0
+
+            for (let j = 0; j <= so_nguyen_x; j++) {
+                if (kiemTraSoNguyenTo(j)) {
+                    sum += j
+                }
+            }
+            return sum
+        }
+
+        let sum = sumOfListPrime(so_nguyen_x)
+
+        document.getElementById("ket_qua").innerHTML = "Tổng các số nguyên tố từ 0 đến " + so_nguyen_x + " là: " + sum
+    }
+</script>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 2</title>
+</head>
+<body>
+<label for="so_nguyen_x">Số nguyên X: </label>
+<input type="number" id="so_nguyen_x" placeholder="Nhập số nguyên x...">
+<label for="so_nguyen_index">Số nguyên vị trí index: </label>
+<input type="number" id="so_nguyen_index" placeholder="Nhập số nguyên vị trí index...">
+<button onclick="check()">Kiểm tra</button>
+<h2 id="check"></h2>
+</body>
+<script>
+    function check() {
+        let mang = [4, 7, 3, 17, 10, 6, 16, 9, 2, 25]
+        let so_nguyen_x = +parseInt(document.getElementById("so_nguyen_x").value)
+        let so_nguyen_index = +parseInt(document.getElementById("so_nguyen_index").value)
+
+        function insertNumberToArray(mang, so_nguyen_x, so_nguyen_index) {
+
+            if (so_nguyen_index < 0 || so_nguyen_index > mang.length) {
+
+
+                return mang
+
+
+            } else {
+                let mang_moi = new Array(mang.length + 1)
+
+                for (let i = 0, j = 0; i < mang_moi.length; i++) {
+                    if (i == so_nguyen_index) {
+                        mang_moi[i] = so_nguyen_x
+                    } else {
+                        mang_moi[i] = mang[j]
+                        j++
+                    }
+                }
+                return mang_moi
+            }
+        }
+
+        document.getElementById("check").innerHTML = "Mảng các số nguyên là: " + insertNumberToArray(mang, so_nguyen_x, so_nguyen_index)
+    }
+
+</script>
+</html>
